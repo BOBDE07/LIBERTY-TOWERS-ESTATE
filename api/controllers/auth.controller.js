@@ -22,7 +22,7 @@ export const signin = async (req, res, next) => {
     const validUser = await User.findOne({email : email }) ; 
 
     if(!validUser) {
-      return next(errorHandler(404 , 'UserNotFound')) ; 
+      return next(errorHandler(404 , 'User Not Found')) ; 
 
     }
 
