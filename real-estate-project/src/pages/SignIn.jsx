@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { signInFailure, signInStart, signInSuccess } from '../redux/user/userSlice'
+import OAuth from '../components/OAuth'
 
 export default function SingIn() {
   const [formData, setFormData] = useState({});
@@ -39,11 +40,11 @@ export default function SingIn() {
 
     
       if (!res.ok) {
-        dispatch(signInFailure(data.message));
+        dispatch(signInFailure(data.message || 'Sign in failed'));
         return;
       }
 
-      dispatch(signInSuccess(data.user));
+      dispatch(signInSuccess(data));
       // dispatch(signInSuccess(data));
       navigate('/');
 
@@ -88,7 +89,7 @@ export default function SingIn() {
             {loading ? 'Loading...' : 'Sign In'}
           </button>
 
-
+          <OAuth/>
 
         </form>
 
