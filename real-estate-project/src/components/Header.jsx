@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
 
-    
+    const {currentUser} = useSelector(state => state.user) ;
 
     return (
         <header className='bg-white shadow-md'>
@@ -47,7 +47,7 @@ export default function Header() {
                     </Link>
 
                     <Link to='/profile'>
-                        {/* {currentUser ? (
+                        {currentUser ? (
                             <img
                                 className='rounded-full h-8 w-8 object-cover'
                                 src={currentUser.avatar}
@@ -57,7 +57,7 @@ export default function Header() {
                             <li className='text-slate-700 hover:underline'>
                                 Sign in
                             </li>
-                        )} */}
+                        )}
                     </Link>
 
                 </ul>
